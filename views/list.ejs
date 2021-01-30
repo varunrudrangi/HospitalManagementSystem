@@ -1,0 +1,35 @@
+
+
+<%- include("header") -%>
+
+  <div class="box" id="heading">
+    <h1> <%= listTitle %> </h1>
+  </div>
+
+  <div class="box">
+
+  <% if (newListItems.length!=0){ %>
+    <%  newListItems.forEach(function(item){ %>
+
+      <form action="/delete" method="POST">
+        <div class="item">
+          <input type="checkbox" name="checkbox" value="<%=item._id%>" onChange="this.form.submit()">
+          <p><%=item.name%></p>
+        </div>
+        <input type="hidden" name="listName" value="<%= depart %>"></input>
+      </form>
+    <%  }) %>
+ <% } %>
+ 
+</div>
+ <% if (newListItems.length===0){ %>
+  <h2 id="h2">you dont have any appoinment </h2>
+ <%}%>
+
+<div class="logout" >
+  <form action="/appoinment" method="post">
+    <button  id="but" class="btn btn-success" type="submit">
+      logout
+    </button>
+  </form>
+</div>

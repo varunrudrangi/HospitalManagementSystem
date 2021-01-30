@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Docmed | Appointment</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">     
+        <link rel="stylesheet" href="css/appoinment.css">
+        
+    </head>
+    <%- include("index") -%>
+    <div class="container">
+        <header class="header">
+        <h1 id="title" class="text-center">Request an Appointment</h1>
+        <p id="description" class="description text-center">
+            Fill the form below and we will get back soon to you for more updates
+        </p>
+        </header>
+        <form id="survey-form" method="POST" action="/appoinment">
+            <div class="form-group">
+                <label id="name-label" for="name">Patient Name</label>
+                <input type="text" name="name" id="name" class="form-control" placeholder="Enter your name" required />
+            </div>
+            <div class="form-group">
+                <label  >Gender</label>
+                <div></div>
+                <label> <input name="gender" value="Male" type="radio" class="input-radio"/>Male</label>
+                <label> <input name="gender" value="Female" type="radio" class="input-radio" />Female</label>
+                <label><input name="gender" value="other" type="radio" class="input-radio" />Other</label>
+            </div>
+            <div class="form-group">
+                <label id="number-label" for="number">Contact No.</label>
+                <input name="contactnumber" id="number" class="form-control" placeholder="10 digit number" required />
+            </div>
+            <div class="form-group">
+                <label id="email-label" for="email">Email</label>
+                <input type="email" name="email" id="email" class="form-control" placeholder="Enter your Email ID" required />
+            </div>
+            <div class="form-group">
+                <label id="number-label" for="number">DOB</label>
+                <input type="date" name="appointment" id="number" class="form-control" placeholder="DD/MM//YYYY" />
+            </div>
+            <div class="form-group">
+                <label>Hospital Location</label>
+                <select id="dropdown" name="location" class="form-control" required>
+                <option disabled selected value>Select Hospital Location</option>
+                <option value="student">Hi-Tech City</option>
+                <option value="job">Kompally</option>
+                <option value="learner">Fateh Nagar</option>
+                <option value="preferNo">Somajiguda</option>
+                <option value="other">Malakpet</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Consultant Type</label>
+                <select id="dropdown" name="consultantType" class="form-control" required>
+                <option disabled selected value>Select CheckUp Type</option>
+                <option value="general">General Checkup</option>
+                <option value="emergency">Emergency</option>
+               
+                </select>
+            </div>
+            <div class="form-group">
+               
+                <label  >Department</label>
+                <select id="dropdown" name="department" class="form-control" required>
+                <option disabled selected value>Select Department</option>
+                <option value="neurology">Neurology</option>
+                <option value="cardiology">Cardiology</option>
+                <option value="orthopedic">Orthopedic</option>
+                <option value="dermatology">Dermatalogy</option>
+                <option value="oncology">Oncology</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="submit" id="submit" class="submit-button">
+                Submit
+                </button>
+            </div>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+</html>
