@@ -1,19 +1,29 @@
 {
   "name": "os-project",
   "version": "1.0.0",
-  "description": "",
+  "description": "HMS",
   "main": "app.js",
   "scripts": {
-    "start":"nodemon app.js",
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "varun",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
     "ejs": "^3.1.5",
     "express": "^4.17.1",
+    "mongodb": "^3.6.3",
     "mongoose": "^5.11.13",
+    "node": "^15.4.0",
     "nodemon": "^2.0.7"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/varunrudrangi/HospitalManagementSystem.git"
+  },
+  "bugs": {
+    "url": "https://github.com/varunrudrangi/HospitalManagementSystem/issues"
+  },
+  "homepage": "https://github.com/varunrudrangi/HospitalManagementSystem#readme"
 }

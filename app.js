@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser=require('body-parser');
 const mongoose= require("mongoose");
-mongoose.connect("mongodb://localhost:27017/fuckDB",{useNewUrlParser:true},{ useUnifiedTopology: true });
+mongoose.connect("mongodb://localhost:27017/fuckDB",{useNewUrlParser: true, useUnifiedTopology: true});
 
 const itemSchema= new mongoose.Schema({
   name:String,
@@ -16,7 +16,10 @@ const itemSchema= new mongoose.Schema({
 const doctorschema=new mongoose.Schema({
   userid:String,
   password:String,
-  department:String
+  department:String,
+  name:String,
+  contact:String,
+  email:String
 })
 const doctorlogin=mongoose.model("doctor_details",doctorschema);
 const neurologygeneral=mongoose.model("neurology-general",itemSchema);
@@ -173,90 +176,79 @@ app.get('/login', function (req, res) {
 })
 
 app.post('/doclogin', function (req, res) {
-  
   // const details=new doctorlogin({
   //   userid:req.body.userid,
   //   password:req.body.password,
   //   department:"neurologyemergency"
-
   // })
   doctorlogin.findOne({userid:req.body.userid,password:req.body.password}, function(err, foundlist){
+    
     if (!err){
       var collectionName=foundlist.department;
-      
-
       if (collectionName==="neurologygeneral"){
         neurologygeneral.find({}, function(err, items){
-          res.render("list", {listTitle: "Today", newListItems: items, depart:"neurologygeneral"});
+          res.render("list", {listTitle: "Today", newListItems: items, depart:"neurologygeneral",name:foundlist.name,phone:foundlist.contact,department:foundlist.department,specs:'neuro'});
         console.log(items);
         })
-
       }
 
       else if (collectionName==="neurologyemergency"){
         neurologyemergency.find({}, function(err, items){
-          res.render("list", {listTitle: "Today", newListItems: items,depart:"neurologyemergency"});
+          res.render("list", {listTitle: "Today", newListItems: items,depart:"neurologyemergency",name:foundlist.name,phone:foundlist.contact,department:foundlist.department,specs:'cardio'});
         
         });
       }
       else if(collectionName==="cardiologygeneral"){
         cardiologygeneral.find({}, function(err, items){
-          res.render("list", {listTitle: "Today", newListItems: items,depart:"cardiologygeneral"});
+          res.render("list", {listTitle: "Today", newListItems: items,depart:"cardiologygeneral",name:foundlist.name,phone:foundlist.contact,department:foundlist.department,specs:'cardio'});
         
         });
       }
       else if(collectionName==="cardiologyemergency"){
         cardiologyemergency.find({}, function(err, items){
-          res.render("list", {listTitle: "Today", newListItems: items,depart:"cardiologyemergency"});
+          res.render("list", {listTitle: "Today", newListItems: items,depart:"cardiologyemergency",name:foundlist.name,phone:foundlist.contact,department:foundlist.department,specs:'cardio'});
         
         });
       }
       else if(collectionName==="orthopedicgeneral"){
         orthopedicgeneral.find({}, function(err, items){
-          res.render("list", {listTitle: "Today", newListItems: items,depart:"orthopedicgeneral"});
+          res.render("list", {listTitle: "Today", newListItems: items,depart:"orthopedicgeneral",name:foundlist.name,phone:foundlist.contact,department:foundlist.department,specs:'orthopedic'});
         
         });
       }
       else if(collectionName==="orthopedicemergency"){
         orthopedicemergency.find({}, function(err, items){
-          res.render("list", {listTitle: "Today", newListItems: items,depart:"orthopedicemergency"});
+          res.render("list", {listTitle: "Today", newListItems: items,depart:"orthopedicemergency",name:foundlist.name,phone:foundlist.contact,department:foundlist.department,specs:'orthopedic'});
         
         });
       }
       else if(collectionName==="dermatalogygeneral"){
         dermatalogygeneral.find({}, function(err, items){
-          res.render("list", {listTitle: "Today", newListItems: items,depart:"dermatalogygenera"});
+          res.render("list", {listTitle: "Today", newListItems: items,depart:"dermatalogygenera",name:foundlist.name,phone:foundlist.contact,department:foundlist.department,specs:'dermatology'});
         
         });
       }
       else if(collectionName==="dermatalogyemergency"){
         dermatalogyemergency.find({}, function(err, items){
-          res.render("list", {listTitle: "Today", newListItems: items,depart:"dermatalogyemergency"});
+          res.render("list", {listTitle: "Today", newListItems: items,depart:"dermatalogyemergency",name:foundlist.name,phone:foundlist.contact,department:foundlist.department,specs:'dermatology'});
         
         });
       }
       else if (collectionName==="oncologygeneral"){
         oncologygeneral.find({}, function(err, items){
-          res.render("list", {listTitle: "Today", newListItems: items,depart:"oncologygeneral"});
+          res.render("list", {listTitle: "Today", newListItems: items,depart:"oncologygeneral",name:foundlist.name,phone:foundlist.contact,department:foundlist.department,specs:'oncology'});
         
         });
       }
       else {
         oncologyemergency.find({}, function(err, items){
-          res.render("list", {listTitle: "Today", newListItems: items,depart:"oncologyemergency"});
+          res.render("list", {listTitle: "Today", newListItems: items,depart:"oncologyemergency",name:foundlist.name,phone:foundlist.contact,department:foundlist.department,specs:'oncology'});
         
         });
       }
-
-
-
-
-
     }
   });
   //details.save()
-
-
 })
 
 
@@ -264,23 +256,16 @@ app.post('/doclogin', function (req, res) {
 app.post("/delete", function(req, res){
   const checkedItemId = req.body.checkbox;
   const collectionName= req.body.listName;
-
-
-
-
   if (collectionName==="neurologygeneral"){
     neurologygeneral.findByIdAndRemove(checkedItemId, function(err){
       if (!err) {
-        console.log("Successfully deleted checked item.");
-      
+        console.log("Successfully deleted checked item.");  
       }
     });
     neurologygeneral.find({}, function(err, items){
       res.render("list", {listTitle: "Today", newListItems: items, depart:"neurologygeneral"});
     console.log(items);
-    })
-    
-
+    }) 
   }
 
   else if (collectionName==="neurologyemergency"){

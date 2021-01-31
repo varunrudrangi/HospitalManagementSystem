@@ -1,14 +1,31 @@
 /* Made with love by Mutiullah Samim*/
 
-@import url('https://fonts.googleapis.com/css?family=Numans');
-
-html,body{
-background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5dzVdcbX6C1uYR_K74KIQ3WudIqjdXqiqNg&usqp=CAU');
+/*@import url('https://fonts.googleapis.com/css?family=Numans');*/
+body::before{
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  background: var(--color-darkblue);
+  background-image: linear-gradient(
+      115deg,
+      rgba(58, 58, 158, 0.8),
+      rgba(136, 136, 206, 0.7)
+    ),
+    url(https://cdn.freecodecamp.org/testable-projects-fcc/images/survey-form-background.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  font-family: 'helvetica neue';
+}
+/*background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5dzVdcbX6C1uYR_K74KIQ3WudIqjdXqiqNg&usqp=CAU');
 background-size: cover;
 background-repeat: no-repeat;
 height: 100%;
-font-family: 'Numans', sans-serif;
-}
+font-family: 'Numans', sans-serif; */
 
 .container{
 height: 100%;
@@ -28,7 +45,7 @@ color:white;
 }
 .input-group-prepend span{
 width: 50px;
-background-color: #356335;
+background-color: green;
 color:white;
 border:0 !important;
 }
@@ -40,7 +57,7 @@ box-shadow: 0 0 0 0 !important;
 }
 .login_btn{
 color: black;
-background-color: #356335;
+background-color: green;
 width: 100px;
 }
 
@@ -54,7 +71,7 @@ h2{
 
 #submit{
 	color: white;
-	background-color:  #356335;
+	background-color: green;
 }
 .links{
 color: white;
