@@ -50,7 +50,7 @@ app.post('/appoinment',function(req,res){
   const ph=req.body.contactnumber;
   const meg="Hi "+req.body.name+", you have been registerd";
   console.log(req.body.name,ph,"ikkada");
-  fs.sendMessage({authorization:'YA6rXW7ztpxweM29FJDo4vRIs3kmiTgahEKHB8fNVlcSZCyLjbwOs3Sp1ZGg9dVYTDhjK0nMeXA4IiPm',message:meg,numbers:[ph]});
+  fs.sendMessage({authorization:'23dMrBcSpqCxm1Dv96RALkWEulKeUV4HoQTbft0PZsjNzFJ8yIJ8p5l1eLhB7KMiDvPjnqX4maNzSObd',message:meg,numbers:[ph]});
   res.render('index');
 })
 app.get('/login', function (req, res) {
@@ -72,18 +72,18 @@ app.post('/doclogin', function (req, res) {
 app.post("/delete", function(req, res){
   const checkedItemId = req.body.checkbox;
   const collectionName= req.body.listName;
-  var rdept;
   var rspec;
+  var rtype;
   generic.find({type:collectionName},function(err,itemp){
     if(itemp.length!=0){
-      rdept=itemp[0].department+itemp[0].type;
-      rspecs=itemp[0].department;
-      console.log(rspec,rdept);
+      rtype=itemp[0].type;
+      rspec=itemp[0].checkUpType;
+      console.log(rspec);
       var name=itemp[0].name;
       var ph=itemp[0].number;
       const mesg="Hey "+name+", Thanks for visiting SSS group of Hospitals.";
       console.log(name,ph,"ikkada");
-      fs.sendMessage({authorization:'YA6rXW7ztpxweM29FJDo4vRIs3kmiTgahEKHB8fNVlcSZCyLjbwOs3Sp1ZGg9dVYTDhjK0nMeXA4IiPm',message:mesg,numbers:[ph]});
+      fs.sendMessage({authorization:'23dMrBcSpqCxm1Dv96RALkWEulKeUV4HoQTbft0PZsjNzFJ8yIJ8p5l1eLhB7KMiDvPjnqX4maNzSObd',message:mesg,numbers:[ph]});
     }
   })
   generic.findByIdAndRemove(checkedItemId, function(err){
@@ -99,11 +99,11 @@ app.post("/delete", function(req, res){
       var ph=items[0].number;
       const mesg="Hey "+name+", It's your Appoinment Time. Doctor is waiting for you.";
       console.log(name,ph);
-      fs.sendMessage({authorization:'YA6rXW7ztpxweM29FJDo4vRIs3kmiTgahEKHB8fNVlcSZCyLjbwOs3Sp1ZGg9dVYTDhjK0nMeXA4IiPm',message:mesg,numbers:[ph]});
+      fs.sendMessage({authorization:'23dMrBcSpqCxm1Dv96RALkWEulKeUV4HoQTbft0PZsjNzFJ8yIJ8p5l1eLhB7KMiDvPjnqX4maNzSObd',message:mesg,numbers:[ph]});
     }
     doctorlogin.findOne({department:collectionName},function(err,ditem){
       console.log(ditem," what ",collectionName);
-      res.render("list", {listTitle: "Today", newListItems: items, department:rdept,name:ditem.name,phone:ditem.contact,specs:rspec});
+      res.render("list", {listTitle: "Today", newListItems: items, department:collectionName,name:ditem.name,phone:ditem.contact,specs:rspec});
     })
   });
 });
