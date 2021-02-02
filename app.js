@@ -72,7 +72,8 @@ app.post('/doclogin', function (req, res) {
 app.post("/delete", function(req, res){
   const checkedItemId = req.body.checkbox;
   const collectionName= req.body.listName;
-  const rdept;
+  var rdept;
+  var rspec;
   generic.find({type:collectionName},function(err,itemp){
     if(itemp.length!=0){
       rdept=itemp[0].department+itemp[0].type;
