@@ -1,0 +1,103 @@
+.key-features{
+	margin-bottom: 100px;
+}
+.ky-1{
+padding: 50px;
+background-color: #3366ff;
+margin-top: 50px;
+margin-bottom: 70px;
+
+}
+.ky-2{
+	padding: 50px;
+background-color: #0085bc;
+}
+.single-key{ 
+	color: #FFF;
+    margin-bottom: 0px;
+	text-align:center; 
+ 	margin: none;
+	  	font-size: 20px;
+  	font-family: "mouse-300", Arial, Helvetica, sans-serif;
+
+}
+.padding-0{
+	padding-right: 0;
+	padding-left: 0;
+
+}
+img{
+	width:428px;
+	height:325px;
+	text-align:center;
+	float:right;
+	     display: block;
+     margin:50px;
+}
+h2{
+	text-align:center;
+	display: block;
+	font-size: 40px;
+    font-family: "mouse-300", Arial, Helvetica, sans-serif;
+    
+}
+.a1{
+	display: block;
+	font-size: 18px;
+    font-family: "mouse-300", Arial, Helvetica, sans-serif;
+    margin-left: 50px;
+    color:#6c757d;
+    margin-bottom: 50px;
+
+}
+.main{
+	font-family: 'Sacramento',cursive;
+	text-align: center;
+	font-size: 60px;
+	background-color:#bbdefb;
+	padding: 50px;
+	margin-bottom: 100px;
+
+}
+.b3{
+	font-family: 'Sacramento',cursive;
+	background-color:#525050;
+	text-align: center;
+		padding-top:50px;
+  	padding-right: 50px;
+  	padding-bottom:100px;
+  	padding-left: 5px;
+  	color:#FFFFFF;
+  	font-size: 50px;
+  	margin-top: 100px;
+}
+.img2{
+	font-family: 'Sacramento',cursive;
+	background-color:#add8e6;
+	font-size: 25px;
+	color:#FFFFFF;
+	
+		padding-top: 40px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  width: 120px;
+  height:150px;
+
+}
+.back{
+	background-color:#bbdefb;
+  	font-size: 40px;
+  	font-family: 'Sacramento',cursive;
+  	color:#FFFFFF;
+	background-color:#bbdefb;
+	padding-left: 20px;
+
+
+
+}
+.back1{
+	background-color: #bbdefb;
+	font-size: 28px;
+	color:#FFFFFF;
+}
